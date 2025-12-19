@@ -7,6 +7,7 @@ import db from './db.js'
 import dotenv from 'dotenv';
 import authRoutes from './src/authRoutes.js'
 import todoRoutes from './src/todoRoutes.js'
+import authMiddleware from './src/middleware/authmiddleware.js'
 dotenv.config();
 const app = express()
 
@@ -42,7 +43,7 @@ app.get('/', async (req, res) => {
 
 //routes 
 app.use('/auth' , authRoutes);
-
+app.use('/todos', authMiddleware, todoRoutes);
  
 
 app.listen(PORT, () => {
