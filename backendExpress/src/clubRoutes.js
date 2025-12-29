@@ -95,7 +95,7 @@ router.delete('/:id', async (req, res) => {
         // Delete the club
         await pool.query(`DELETE FROM schoolclubs WHERE id = $1`, [id]);
 
-        res.status(200).json({ message: 'Club deleted successfully' });
+        res.status(200).json({ message: 'Club has been deleted ' });
 
     } catch (error) {
         console.error('Error deleting club:', error);
